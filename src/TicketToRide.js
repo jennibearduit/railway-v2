@@ -6,8 +6,27 @@ import './styles/topnav.css';
 import { PageState } from "./pages/PageStateEnum"
 import { useState } from "react";
 
+const NUM_SEATS = 10;
+
 function TicketToRide() {
     const [pageState, setPageState] = useState(PageState.HOME);
+    const [travellers, setTravellers] = useState([]);
+
+    function initTravellers() {
+        setTravellers(
+            Array
+                .from({ length: NUM_SEATS }, (_, i) => i + 1)
+                .map(num => {
+                    return ({
+                        SERIAL_NO: num,
+                        NAME: '',
+                        PHONE: '',
+                        TIMESTAMP: '',
+                        AVAILABILITY: true
+                    })
+                })
+        )
+    }
 
     const handleAvailabilityClick = (e) => {
         e.preventDefault();
@@ -21,7 +40,6 @@ function TicketToRide() {
 
     const handleHomeClick = (e) => {
         e.preventDefault();
-        e.className="active"
         setPageState(PageState.HOME)
     }
 
@@ -29,9 +47,9 @@ function TicketToRide() {
         <>
             <div class="topnav">
                 <a className="logo" onClick={handleHomeClick}>Ticket To Ride .</a>
-                <a onClick={handleHomeClick}>Home</a>
-                <a onClick={handleReservationListClick}>Reservation List</a>
-                <a onClick={handleAvailabilityClick}>Availability</a>
+                <a id="homeBar" onClick={handleHomeClick}>Home</a>
+                <a id="reservationListBar" onClick={handleReservationListClick}>Reservation List</a>
+                <a id="availabilityBar" onClick={handleAvailabilityClick}>Availability</a>
             </div>
             <HomePage pageState={pageState} setPageState={setPageState} />
             <ReservationListPage pageState={pageState} setPageState={setPageState} />

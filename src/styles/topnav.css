@@ -31,3 +31,7 @@
     transform: translateY(0px);
 }
 
+.topnav a.active {
+    border-bottom: 3px solid #29b6f6;
+    transition: border-bottom .5s ease-in-out;
+}
