@@ -1,4 +1,4 @@
-import { PageState } from "../PageStateEnum"
+import { PageState } from "./PageStateEnum"
 
 const ReservationListPage = (props) => {
     const { pageState, setPageState } = props
@@ -6,6 +6,7 @@ const ReservationListPage = (props) => {
     if (pageState !== PageState.RESERVATION_LIST) return;
 
     return (
+
         <>
             Reservation
         </>

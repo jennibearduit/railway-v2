@@ -1,8 +1,8 @@
 import AvailabilityPage from "./pages/AvailabilityPage"
 import HomePage from "./pages/HomePage"
 import ReservationListPage from "./pages/ReservationListPage"
-import './TicketToRide.css';
-import { PageState } from "./PageStateEnum"
+import './styles/TicketToRide.css';
+import { PageState } from "./pages/PageStateEnum"
 import { useState } from "react";
 
 function TicketToRide() {

@@ -1,4 +1,4 @@
-import { PageState } from "../PageStateEnum"
+import { PageState } from "./PageStateEnum"
 
 const HomePage = (props) => {
     const { pageState, setPageState } = props
