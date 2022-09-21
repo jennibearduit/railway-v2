@@ -1,7 +1,7 @@
 import AvailabilityPage from "./pages/AvailabilityPage"
 import HomePage from "./pages/HomePage"
 import ReservationListPage from "./pages/ReservationListPage"
-import './styles/TicketToRide.css';
+import './styles/topnav.css';
 
 import { PageState } from "./pages/PageStateEnum"
 import { useState } from "react";
