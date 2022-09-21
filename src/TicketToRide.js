@@ -39,9 +39,3 @@ function TicketToRide() {
 }
 
 export default TicketToRide;
-
-{/* <>
-<HomePage pageState={pageState} setPageState={setPageState}/>
-<ReservationListPage pageState={pageState} setPageState={setPageState}/>
-<AvailabilityPage pageState={pageState} setPageState={setPageState}/>
-</> */}
