@@ -6,8 +6,6 @@ import './styles/topnav.css';
 import { PageState } from "./pages/PageStateEnum"
 import { useState } from "react";
 
-const NUM_SEATS = 10;
-
 function TicketToRide() {
     const [pageState, setPageState] = useState(PageState.HOME);
     const [travellers, setTravellers] = useState([]);
