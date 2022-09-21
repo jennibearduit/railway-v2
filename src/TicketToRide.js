@@ -12,22 +12,6 @@ function TicketToRide() {
     const [pageState, setPageState] = useState(PageState.HOME);
     const [travellers, setTravellers] = useState([]);
 
-    function initTravellers() {
-        setTravellers(
-            Array
-                .from({ length: NUM_SEATS }, (_, i) => i + 1)
-                .map(num => {
-                    return ({
-                        SERIAL_NO: num,
-                        NAME: '',
-                        PHONE: '',
-                        TIMESTAMP: '',
-                        AVAILABILITY: true
-                    })
-                })
-        )
-    }
-
     const handleAvailabilityClick = (e) => {
         e.preventDefault();
         setPageState(PageState.AVAILABILITY)
