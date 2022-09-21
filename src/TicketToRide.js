@@ -21,6 +21,7 @@ function TicketToRide() {
 
     const handleHomeClick = (e) => {
         e.preventDefault();
+        e.className="active"
         setPageState(PageState.HOME)
     }
 
