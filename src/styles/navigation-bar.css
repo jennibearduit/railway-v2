@@ -21,8 +21,3 @@
   .navbar__link:hover {
     transform: translateY(-3px);
   }
-  
-  .navbar__link--active {
-    border-bottom: 3px solid #29b6f6;
-    transition: border-bottom .5s ease-in-out;
-  }

@@ -6,9 +6,10 @@ import { Route, Routes } from 'react-router-dom';
 
 const Router = () => (
   <Routes>
-    <Route exact path="/availability" component={AvailabilityPage} />
-    <Route exact path="/reservationlist" component={ReservationListPage} />
-    <Route exact path="/" component={HomePage} />
+    <Route exact="true" path="/" element={<HomePage />} />
+    <Route path="/availability" element={<AvailabilityPage />} />
+    <Route path="/reservationlist" element={<ReservationListPage />} />
+    <Route path="/" element={<HomePage />} />
   </Routes>
 );
 
