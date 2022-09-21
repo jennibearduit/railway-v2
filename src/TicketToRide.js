@@ -27,10 +27,10 @@ function TicketToRide() {
     return (
         <>
             <div class="topnav">
-                <a class="logo" onClick={handleHomeClick}>Ticket To Ride .</a>
-                <a class="passive" onClick={handleAvailabilityClick}>Availability</a>
-                <a class="passive" onClick={handleReservationListClick}>Reservation List</a>
-                <a class="active" onClick={handleHomeClick}>Home</a>
+                <a className="logo" onClick={handleHomeClick}>Ticket To Ride .</a>
+                <a onClick={handleHomeClick}>Home</a>
+                <a onClick={handleReservationListClick}>Reservation List</a>
+                <a onClick={handleAvailabilityClick}>Availability</a>
             </div>
             <HomePage pageState={pageState} setPageState={setPageState} />
             <ReservationListPage pageState={pageState} setPageState={setPageState} />
