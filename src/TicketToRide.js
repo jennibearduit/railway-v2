@@ -2,6 +2,9 @@ import AvailabilityPage from "./pages/AvailabilityPage"
 import HomePage from "./pages/HomePage"
 import ReservationListPage from "./pages/ReservationListPage"
 import './styles/TicketToRide.css';
+import NavigationBar from './components/NavigationBar';
+import Router from './routes/router';
+
 import { PageState } from "./pages/PageStateEnum"
 import { useState } from "react";
 
@@ -25,12 +28,8 @@ function TicketToRide() {
 
     return (
         <>
-            <div class="topnav">
-                <a class="logo" onClick={handleHomeClick}>Ticket To Ride .</a>
-                <a class="passive" onClick={handleAvailabilityClick}>Availability</a>
-                <a class="passive" onClick={handleReservationListClick}>Reservation List</a>
-                <a class="active" onClick={handleHomeClick}>Home</a>
-            </div>
+            <NavigationBar />
+        `   <Router />
             <HomePage pageState={pageState} setPageState={setPageState} />
             <ReservationListPage pageState={pageState} setPageState={setPageState} />
             <AvailabilityPage pageState={pageState} setPageState={setPageState} />
