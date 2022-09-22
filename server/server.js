@@ -43,7 +43,7 @@ app.post('/api/travellers', (request, response) => {
     name: body.name,
     phone: body.phone,
     passport: body.passport,
-    date: new Date()
+    date: body.date
   }
 
   travellers.concat(traveller)
@@ -65,5 +65,3 @@ const PORT = 3000;
 app.listen(PORT, function () {
   console.log(`Server running on ${PORT}`);
 });
-
-app.get('/api/travellers')

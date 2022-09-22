@@ -3,17 +3,15 @@ import Row from '../components/Row';
 import '../styles/home.css';
 
 const HomePage = (props) => {
-    const { pageState, onChangePage:changePage, travellers, onAdd:addTraveller } = props;
-
+    const { onChangePage:changePage, travellers } = props;
     const takenSeats = travellers.length;
     const style = {
-        textAlign: 'center', 
+        textAlign: 'center',
         marginTop: '5%',
         marginBottom: '2%',
         letterSpacing: '.1em',
         fontSize: '125%'
     }
-
     const buttonStyle = {
         alignItems: 'center',
         backgroundColor: 'white',
@@ -31,17 +29,23 @@ const HomePage = (props) => {
 
     const buttonClickHandler = (e) => {
         e.preventDefault();
-        changePage(PageState.FORM);
+        if (takenSeats < 10) {
+            changePage(PageState.FORM);
+        } else {
+            window.alert("The reservation is full!");
+        }
     }
 
     return (
         <>
             <div style={style}>
-                Available: {10-takenSeats}
+                Available: {10 - takenSeats}
             </div>
             <Row travellers={travellers} rowId={1}/>
             <Row travellers={travellers} rowId={2}/>
-            <button className="reservationButton" style={buttonStyle} onClick={buttonClickHandler}>Add Booking</button>
+            <button className="reservationButton" style={buttonStyle} onClick={buttonClickHandler}>
+                Add Booking
+            </button>
         </>
     )
 }

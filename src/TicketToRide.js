@@ -10,45 +10,26 @@ function TicketToRide() {
     const [pageState, setPageState] = useState(PageState.HOME);
     const [travellers, setTravellers] = useState([]);
 
-    const hook = () => {
+    useEffect(() => {
         travellersService
             .getAllTravellers()
-            .then(res => {
-                setTravellers(res)
-            });
-    }
-    useEffect(hook, [])
+            .then(res => setTravellers(res));
+    }, [])
 
-    const changePageState = (state) => {
-        console.log(`change page state to ${state}`)
-        setPageState(state)
-    }
+    const changePageState = (state) => setPageState(state) // for components
+    const pageChangeHandler = (state) => () => setPageState(state) // for nav bar
 
-    const pageChangeHandler = (state) => () => {
-        console.log(`change page state to ${state}`)
-        setPageState(state)
-    }
-
-    const deleteTravellerHandler = id => () => {
+    const deleteTravellerHandler = (id) => () => {
         console.log(`delete traveller ${id}`)
         travellersService
             .deleteTraveller(id)
-            .then(() => {
-                travellersService
-                    .getAllTravellers()
-                    .then(arr => setTravellers(arr))
-            })
+            .then(() => setTravellers(travellers.filter(t => t.id !== id)))
     }
 
-    const addTravellerHandler = traveller => () => {
-        console.log(`add traveller ${traveller.id}`)
+    const addTravellerHandler = (traveller) => {
         travellersService
             .addTraveller(traveller)
-            .then(() => {
-                travellersService
-                    .getAllTravellers()
-                    .then(arr => setTravellers(arr))
-            })
+            .then(res => setTravellers(travellers.concat(res)))
     }
 
     return (
@@ -60,29 +41,16 @@ function TicketToRide() {
             </div>
             {
                 pageState === PageState.HOME &&
-                <HomePage
-                    pageState={pageState}
-                    onChangePage={changePageState}
-                    travellers={travellers}
-                    onAdd={addTravellerHandler}
-                />
+                <HomePage onChangePage={changePageState} travellers={travellers} show={travellers}/>
             }
             {
                 pageState === PageState.RESERVATION_LIST &&
-                <ReservationListPage
-                    pageState={pageState}
-                    onChangePage={changePageState}
-                    travellers={travellers}
-                    onDelete={deleteTravellerHandler}
+                <ReservationListPage onChangePage={changePageState} travellers={travellers} onDelete={deleteTravellerHandler}
                 />
             }
             {   
                 pageState === PageState.FORM &&
-                <FormPage
-                    pageState={pageState}
-                    onChangePage={changePageState}
-                    travellers={travellers}
-                />
+                <FormPage onChangePage={changePageState} travellers={travellers} onAdd={addTravellerHandler}/>
             }
         </>
     )
