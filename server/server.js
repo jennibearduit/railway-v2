@@ -6,24 +6,17 @@ app.use(cors());
 
 let travellers = [ {
   id: 1,
-  name: 'Dummy Traveller 1',
-  phone: '12345678',
-  passport: 'XXXXXXXX',
+  name: 'Jessica',
+  phone: '88888888',
+  passport: '7777777',
   timestamp: new Date()
 }, {
   id: 2,
-  name: 'Dummy Traveller 2',
-  phone: '12345678',
-  passport: 'XXXXXXXX',
+  name: 'James',
+  phone: '98989898',
+  passport: '0000000',
   timestamp: new Date()
 }]
-
-const generateId = () => {
-  const maxId = travellers.length > 0
-    ? Math.max(...travellers.map(t => t.id))
-    : 0;
-  return maxId + 1;
-}
 
 app.get('/api/travellers', (request, response) => {
   response.json(travellers)

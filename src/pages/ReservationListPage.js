@@ -1,7 +1,7 @@
 import { PageState } from "./PageStateEnum"
 
 const ReservationListPage = (props) => {
-    const { pageState, onChangePage:changePage, onDelete:deleteTraveller, travellers } = props;
+    const { onChangePage:changePage, travellers, onDelete:deleteTraveller} = props;
 
     return (
         <>
