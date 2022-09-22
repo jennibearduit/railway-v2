@@ -4,8 +4,6 @@ import Row from '../components/Row';
 const HomePage = (props) => {
     const { pageState, onChangePage:changePage, travellers, onAdd:addTraveller } = props;
 
-    if (pageState !== PageState.HOME) return;
-
     const takenSeats = travellers.length;
     const style = {
         textAlign: 'center', 

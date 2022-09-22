@@ -1,9 +1,7 @@
 import { PageState } from "./PageStateEnum"
 
 const FormPage = (props) => {
-    const { pageState, onChangePage, travellers } = props
-
-    if (pageState !== PageState.FORM) return;
+    const { pageState, onChangePage, travellers } = props;
 
     return (
         <>
