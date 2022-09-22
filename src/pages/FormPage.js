@@ -24,6 +24,20 @@ const FormPage = (props) => {
         padding: '12px 20px',
         width: '500px'
     }
+    const buttonStyle = {
+        alignItems: 'center',
+        backgroundColor: 'white',
+        border: 'solid',
+        borderRadius: '5px',
+        color: 'black',
+        cursor: 'pointer',
+        display: 'block',
+        fontFamily: 'inherit',
+        fontSize: '1.1rem',
+        margin: '5% auto',
+        padding: '1.3rem',
+        width: '25%'
+    }
 
 
     const clickHandler = (e) => {
@@ -65,7 +79,7 @@ const FormPage = (props) => {
                 <br></br><br></br><label>Passport</label><br></br>
                 <input type="text" style={inputStyle} onChange={passportHandler}></input>
             </form>
-            <button onClick={clickHandler}>Submit</button>
+            <button onClick={clickHandler} style={buttonStyle}>Submit</button>
         </>
     )
 }
