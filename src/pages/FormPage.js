@@ -1,15 +1,15 @@
 import { PageState } from "./PageStateEnum"
 
-const AvailabilityPage = (props) => {
+const FormPage = (props) => {
     const { pageState, onChangePage, travellers } = props
 
-    if (pageState !== PageState.AVAILABILITY) return;
+    if (pageState !== PageState.FORM) return;
 
     return (
         <>
-            Availability
+            Form
         </>
     )
 }
 
-export default AvailabilityPage;
+export default FormPage;

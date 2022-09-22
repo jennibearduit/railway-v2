@@ -1,4 +1,4 @@
-import AvailabilityPage from './pages/AvailabilityPage'
+import FormPage from './pages/FormPage'
 import HomePage from './pages/HomePage'
 import ReservationListPage from './pages/ReservationListPage'
 import './styles/topnav.css';
@@ -51,28 +51,12 @@ function TicketToRide() {
             })
     }
 
-    const handleAvailabilityClick = (e) => {
-        e.preventDefault();
-        setPageState(PageState.AVAILABILITY)
-    }
-
-    const handleReservationListClick = (e) => {
-        e.preventDefault();
-        setPageState(PageState.RESERVATION_LIST)
-    }
-
-    const handleHomeClick = (e) => {
-        e.preventDefault();
-        setPageState(PageState.HOME)
-    }
-
     return (
         <>
             <div className="topnav">
                 <a className="logo" onClick={pageChangeHandler(PageState.HOME)}>Ticket To Ride .</a>
                 <a id="homeBar" onClick={pageChangeHandler(PageState.HOME)}>Home</a>
                 <a id="reservationListBar" onClick={pageChangeHandler(PageState.RESERVATION_LIST)}>Reservation List</a>
-                <a id="availabilityBar" onClick={pageChangeHandler(PageState.AVAILABILITY)}>Availability</a>
             </div>
             {
                 pageState === PageState.HOME &&
@@ -93,8 +77,8 @@ function TicketToRide() {
                 />
             }
             {   
-                pageState === PageState.AVAILABILITY &&
-                <AvailabilityPage
+                pageState === PageState.FORM &&
+                <FormPage
                     pageState={pageState}
                     onChangePage={changePageState}
                     travellers={travellers}

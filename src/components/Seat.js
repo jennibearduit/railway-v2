@@ -15,6 +15,7 @@ const Seat = (props) => {
         padding: "1% 2% 1% 2%",
         borderRadius: "5px 5px 5px 5px"
     }
+    
     return (
         <div className="seat" style={style}>
         <p>{props.id}</p>
