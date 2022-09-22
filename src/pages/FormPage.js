@@ -4,9 +4,9 @@ import { useState } from "react";
 const FormPage = (props) => {
     const { onChangePage:changePage, travellers, onAdd:addTraveller } = props;
     const allSeatIds = Array
-        .from({length: 10}, (_, i) => i+1)
-    const takenSeatIds = travellers.map(t => t.id)
-    const availableSeatIds = allSeatIds.filter(seat => !takenSeatIds.includes(seat))
+        .from({length: 10}, (_, i) => i+1);
+    const takenSeatIds = travellers.map(t => t.id);
+    const availableSeatIds = allSeatIds.filter(seat => !takenSeatIds.includes(seat));
 
     const [ id, setId ] = useState(Math.min(...availableSeatIds));
     const [ name, setName ] = useState('');
@@ -32,37 +32,16 @@ const FormPage = (props) => {
         if (!id || !name || !phone || !passport) {
             window.alert("All fields must be filled!");
         } else {
-            const traveller = {
-                id: id,
-                name: name,
-                phone: phone,
-                passport: passport,
-                date: new Date()
-            }
+            const traveller = { id:id, name:name, phone:phone, passport:passport, date: new Date() }
             addTraveller(traveller);
         }
         changePage(PageState.HOME);
     }
 
-    const idHandler = e => {
-        e.preventDefault();
-        setId(e.target.value);
-    }
-
-    const nameHandler = e => {
-        e.preventDefault();
-        setName(e.target.value);
-    }
-
-    const phoneHandler = e => {
-        e.preventDefault();
-        setPhone(e.target.value);
-    }
-
-    const passportHandler = e => {
-        e.preventDefault();
-        setPassport(e.target.value);
-    }
+    const idHandler = (e) => setId(e.target.value);
+    const nameHandler = (e) => setName(e.target.value);
+    const phoneHandler = (e) => setPhone(e.target.value);
+    const passportHandler = (e) => setPassport(e.target.value);
 
     return (
         <>
