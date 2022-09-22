@@ -1,11 +1,10 @@
 import { PageState } from './PageStateEnum'
 import Row from '../components/Row';
-import '../styles/home.css';
 
 const HomePage = (props) => {
     const { onChangePage:changePage, travellers } = props;
     const takenSeats = travellers.length;
-    const style = {
+    const textStyle = {
         textAlign: 'center',
         marginTop: '5%',
         marginBottom: '2%',
@@ -38,12 +37,12 @@ const HomePage = (props) => {
 
     return (
         <>
-            <div style={style}>
+            <div style={textStyle}>
                 Available: {10 - takenSeats}
             </div>
             <Row travellers={travellers} rowId={1}/>
             <Row travellers={travellers} rowId={2}/>
-            <button className="reservationButton" style={buttonStyle} onClick={buttonClickHandler}>
+            <button className="reservationButton" onClick={buttonClickHandler} style={buttonStyle}>
                 Add Booking
             </button>
         </>
