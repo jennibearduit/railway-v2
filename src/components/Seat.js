@@ -6,14 +6,14 @@ const Seat = (props) => {
     const y = id <= 5 ? id: id-5;
 
     const style = {
-        position: "absolute",
-        left: `${y*10}em`,
-        top: `${x*10}em`,
+        display: "block",
+        left: `${y*12.5}%`,
+        top: `${x*12.5}%`,
         backgroundColor: colour,
         color: "white",
-        margin: "2% 2% 2% 2%",
-        padding: "1.5% 3% 1.5% 3%",
-        "border-radius": "5px 5px 5px 5px"
+        margin: "4% 2% 4% 2%",
+        padding: "1% 2% 1% 2%",
+        borderRadius: "5px 5px 5px 5px"
     }
     return (
         <div className="seat" style={style}>
