@@ -36,10 +36,10 @@ app.post('/api/travellers', (request, response) => {
     name: body.name,
     phone: body.phone,
     passport: body.passport,
-    date: body.date
+    timestamp: body.timestamp
   }
 
-  travellers.concat(traveller)
+  travellers = travellers.concat(traveller)
   response.json(traveller)
 })
 

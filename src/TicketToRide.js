@@ -19,7 +19,7 @@ function TicketToRide() {
     const changePageState = (state) => setPageState(state) // for components
     const pageChangeHandler = (state) => () => setPageState(state) // for nav bar
 
-    const deleteTravellerHandler = (id) => () => {
+    const deleteTravellerHandler = (id) => {
         console.log(`delete traveller ${id}`)
         travellersService
             .deleteTraveller(id)
@@ -45,7 +45,7 @@ function TicketToRide() {
             }
             {
                 pageState === PageState.RESERVATION_LIST &&
-                <ReservationListPage onChangePage={changePageState} travellers={travellers} onDelete={deleteTravellerHandler}
+                <ReservationListPage travellers={travellers} onDelete={deleteTravellerHandler}
                 />
             }
             {   
