@@ -19,6 +19,16 @@ function TicketToRide() {
     }
     useEffect(hook, [])
 
+    const changePageState = (state) => {
+        console.log(`change page state to ${state}`)
+        setPageState(state)
+    }
+
+    const pageChangeHandler = (state) => () => {
+        console.log(`change page state to ${state}`)
+        setPageState(state)
+    }
+
     const deleteTravellerHandler = id => () => {
         console.log(`delete traveller ${id}`)
         travellersService
@@ -26,7 +36,7 @@ function TicketToRide() {
             .then(() => {
                 travellersService
                     .getAllTravellers()
-                    .then (arr => setTravellers(arr))
+                    .then(arr => setTravellers(arr))
             })
     }
 
@@ -37,7 +47,7 @@ function TicketToRide() {
             .then(() => {
                 travellersService
                     .getAllTravellers()
-                    .then (arr => setTravellers(arr))
+                    .then(arr => setTravellers(arr))
             })
     }
 
@@ -59,14 +69,37 @@ function TicketToRide() {
     return (
         <>
             <div className="topnav">
-                <a className="logo" onClick={handleHomeClick}>Ticket To Ride .</a>
-                <a id="homeBar" onClick={handleHomeClick}>Home</a>
-                <a id="reservationListBar" onClick={handleReservationListClick}>Reservation List</a>
-                <a id="availabilityBar" onClick={handleAvailabilityClick}>Availability</a>
+                <a className="logo" onClick={pageChangeHandler(PageState.HOME)}>Ticket To Ride .</a>
+                <a id="homeBar" onClick={pageChangeHandler(PageState.HOME)}>Home</a>
+                <a id="reservationListBar" onClick={pageChangeHandler(PageState.RESERVATION_LIST)}>Reservation List</a>
+                <a id="availabilityBar" onClick={pageChangeHandler(PageState.AVAILABILITY)}>Availability</a>
             </div>
-            <HomePage pageState={pageState} setPageState={setPageState} />
-            <ReservationListPage pageState={pageState} setPageState={setPageState} />
-            <AvailabilityPage pageState={pageState} setPageState={setPageState} />
+            {
+                pageState === PageState.HOME &&
+                <HomePage
+                    pageState={pageState}
+                    onChangePage={changePageState}
+                    travellers={travellers}
+                    onAdd={addTravellerHandler}
+                />
+            }
+            {
+                pageState === PageState.RESERVATION_LIST &&
+                <ReservationListPage
+                    pageState={pageState}
+                    onChangePage={changePageState}
+                    travellers={travellers}
+                    onDelete={deleteTravellerHandler}
+                />
+            }
+            {   
+                pageState === PageState.AVAILABILITY &&
+                <AvailabilityPage
+                    pageState={pageState}
+                    onChangePage={changePageState}
+                    travellers={travellers}
+                />
+            }
         </>
     )
 }

@@ -1,7 +1,7 @@
 import { PageState } from "./PageStateEnum"
 
 const AvailabilityPage = (props) => {
-    const { pageState, setPageState } = props
+    const { pageState, onChangePage, travellers } = props
 
     if (pageState !== PageState.AVAILABILITY) return;
 
