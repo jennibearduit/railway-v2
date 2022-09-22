@@ -9,13 +9,13 @@ let travellers = [ {
   name: 'Jessica',
   phone: '88888888',
   passport: '7777777',
-  timestamp: new Date()
+  timestamp: new Date().toLocaleString()
 }, {
   id: 2,
   name: 'James',
   phone: '98989898',
   passport: '0000000',
-  timestamp: new Date()
+  timestamp: new Date().toLocaleString()
 }]
 
 app.get('/api/travellers', (request, response) => {

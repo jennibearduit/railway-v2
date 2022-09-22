@@ -32,7 +32,7 @@ const FormPage = (props) => {
         if (!id || !name || !phone || !passport) {
             window.alert("All fields must be filled!");
         } else {
-            const traveller = { id:id, name:name, phone:phone, passport:passport, date: new Date() }
+            const traveller = { id:id, name:name, phone:phone, passport:passport, date: new Date().toLocaleString() }
             addTraveller(traveller);
         }
         changePage(PageState.HOME);
