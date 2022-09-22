@@ -6,7 +6,6 @@ const ReservationListPage = (props) => {
     if (pageState !== PageState.RESERVATION_LIST) return;
 
     return (
-
         <>
             Reservation
         </>

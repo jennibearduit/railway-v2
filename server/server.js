@@ -38,24 +38,6 @@ app.delete('/api/travellers/:id', (request, response) => {
 // Add travellers
 app.post('/api/travellers', (request, response) => {
   const body = request.body
-  if (!body.id) {
-    return response.status(404).json({
-      error:'id missing'
-    })
-  } else if (!body.name) {
-    return response.status(404).json({
-      error:'name missing'
-    })
-  } else  if (!body.phone) {
-    return response.status(404).json({
-      error:'phone missing'
-    })
-  } else if (!body.passport) {
-    return response.status(404).json({
-      error:'passport missing'
-    })
-  }
-
   const traveller = {
     id: body.id,
     name: body.name,
