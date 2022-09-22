@@ -1,14 +1,17 @@
-import AvailabilityPage from "./pages/AvailabilityPage"
-import HomePage from "./pages/HomePage"
-import ReservationListPage from "./pages/ReservationListPage"
+import AvailabilityPage from './pages/AvailabilityPage'
+import HomePage from './pages/HomePage'
+import ReservationListPage from './pages/ReservationListPage'
 import './styles/topnav.css';
 
-import { PageState } from "./pages/PageStateEnum"
-import { useState } from "react";
+import { PageState } from './pages/PageStateEnum'
+import { useState } from 'react';
 
 function TicketToRide() {
     const [pageState, setPageState] = useState(PageState.HOME);
     const [travellers, setTravellers] = useState([]);
+
+    // Delete handler
+    // Page Handler
 
     const handleAvailabilityClick = (e) => {
         e.preventDefault();
