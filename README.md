@@ -6,10 +6,12 @@
 
 2. `git clone git@github.com:jennibearduit/tut3.git`
 
-3. Open the cloned repository with VS Code
+3. `docker cp <path where code is available> tutorial3:/home/it5007/`
 
-4. `npm install`
+4. Open the directory with VS Code
 
-5. Open two terminals and run the following command in order:
+5. `npm install`
+
+6. Open two terminals and run the following command in order:
   - (T1) `npm run server`
   - (T2) `npm run client`
